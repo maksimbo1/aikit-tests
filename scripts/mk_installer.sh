@@ -14,31 +14,29 @@ export MINICONDA_INSTALLER="$LOCAL_TMP/Miniconda3-latest-Linux-x86_64.sh"
 mkdir -p "$LOCAL_TMP"
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh --output-document="$MINICONDA_INSTALLER"
 bash "$MINICONDA_INSTALLER" -p "$PREFIX" -b -f -u
-"$CONDA" install --yes constructor #python=3.6
+"$CONDA" install --yes --prefix "$PREFIX" constructor
 mkdir -p "$INSTALLER_DIR"
 cat <<EOF > "$INSTALLER_DIR/construct.yaml"
 name: Intel-AIkit
 version: 2021.4.1
 channels:
+  - intel
   - defaults
 
 specs:
-  - dpcpp_cpp_rt
   - python=3.7
+  - pyeditline
   - modin-core=$MODIN_VERSION
   - modin-omnisci=$MODIN_VERSION
   - pyomniscidbe=$OMNISCIDB_VERSION
   - numpy
-  - scikit-learn-intelex
-  - xgboost
-  - intel::intel-aikit-tensorflow
-  - intel::intel-aikit-pytorch
-  - lpot
+  - scikit-learn-intelex >=2021.4
+  - scikit-ipp
+  - threadpoolctl
+  - xgboost >=1.4.2
   - conda
   - bzip2
-  - icc_rt
   - intel-openmp
-  - intelpython
   - libffi
   - libgcc-ng
   - libstdcxx-ng
@@ -62,8 +60,19 @@ specs:
   - yaml
   - zlib
   - libgdal
-  - opencl_rt
   - intel-opencl-rt
   - libclang-cpp
+  - tensorflow >=2.5.0
+  - python-flatbuffers
+  - impi-devel >=2021.4
+  - pytorch >=1.8.0
+  - intel-extension-for-pytorch >=1.8.0
+  - torchvision
+  - torch_ccl
+  - lpot >=1.5.1
+  - distributed
+  - libthrift=0.14.*
+  - thrift-cpp=0.14.*
+
 EOF
 ( cd "$INSTALLER_DIR" && "$CONSTRUCTOR" . && mv "$MODIN_INSTALLER" "$CUR_DIR" )
