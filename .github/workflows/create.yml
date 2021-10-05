@@ -1,7 +1,7 @@
-name: create
+name: create_installer
 on: workflow_dispatch
 jobs:
-  create-installer:
+  make_artifact:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,5 +16,5 @@ jobs:
       - name: upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Intel-AIkit-2021.4.1-Linux-x86_64.sh
+          name: Intel-AIkit-2021.4.1-Linux-x86_64
           path: /home/runner/work/aikit-tests/aikit-tests/Intel-AIkit-2021.4.1-Linux-x86_64.sh
