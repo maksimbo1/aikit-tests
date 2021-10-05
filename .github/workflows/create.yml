@@ -12,7 +12,7 @@ jobs:
         with:
           python-version: 3.7
       - name: install constructor and make installer
-        run: $CONDA/bin/conda install constructor && $CONDA/bin/constructor Intel-AIkit/construct.yaml
+        run: $CONDA/bin/conda install constructor && $CONDA/bin/constructor Intel-AIkit/
       - name: upload artifact
         uses: actions/upload-artifact@v2
         with:
