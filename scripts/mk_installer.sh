@@ -11,6 +11,7 @@ export MODIN_VERSION=0.11
 export MODIN_INSTALLER="Intel-AIkit-2021.4.1-Linux-x86_64.sh"
 export OMNISCIDB_VERSION="5.7.1"
 export MINICONDA_INSTALLER="$LOCAL_TMP/Miniconda3-latest-Linux-x86_64.sh"
+cp `dirname $0`/intel-developer-tools-eula-10-05-20.txt "$INSTALLER_DIR"/
 mkdir -p "$LOCAL_TMP"
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh --output-document="$MINICONDA_INSTALLER"
 bash "$MINICONDA_INSTALLER" -p "$PREFIX" -b -f -u
@@ -22,7 +23,7 @@ version: 2021.4.1
 channels:
   - intel
   - defaults
-
+license_file: intel-developer-tools-eula-10-05-20.txt
 specs:
   - python=3.7
   - pyeditline
@@ -73,6 +74,7 @@ specs:
   - distributed
   - libthrift=0.14.*
   - thrift-cpp=0.14.*
+  - openjdk >=8.0.302
 
 EOF
 ( cd "$INSTALLER_DIR" && "$CONSTRUCTOR" . && mv "$MODIN_INSTALLER" "$CUR_DIR" )
