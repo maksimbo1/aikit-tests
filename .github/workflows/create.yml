@@ -17,4 +17,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: aikit-installer
-          path: /Intel-AIkit-2021.4.1-Linux-x86_64.sh
+          path: /home/runner/work/aikit-tests/aikit-tests/Intel-AIkit-2021.4.1-Linux-x86_64.sh
