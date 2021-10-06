@@ -4,53 +4,9 @@ channels:
   - intel
   - defaults
 license_file: intel-developer-tools-eula-10-05-20.txt
+post_install: "modin.sh"
 specs:
-  - python=3.7
-  - pyeditline
-  - modin-all=0.11
-  - pyomniscidbe=5.7.1
-  - numpy
-  - scikit-learn-intelex >=2021.4
-  - scikit-ipp
-  - threadpoolctl
-  - xgboost >=1.4.2
+  - intel::python=3.7
+  - intel-aikit-tensorflow
+  - intel-aikit-pytorch
   - conda
-  - bzip2
-  - intel-openmp
-  - libffi
-  - libgcc-ng
-  - libstdcxx-ng
-  - mkl
-  - mkl-service
-  - mkl_fft
-  - mkl_random
-  - numpy
-  - numpy-base
-  - openssl
-  - pip
-  - pyyaml
-  - scipy
-  - setuptools
-  - six
-  - sqlite
-  - tbb
-  - tbb4py
-  - tk
-  - wheel
-  - yaml
-  - zlib
-  - libgdal
-  - intel-opencl-rt
-  - libclang-cpp
-  - tensorflow >=2.5.0
-  - python-flatbuffers
-  - impi-devel >=2021.4
-  - pytorch >=1.8.0
-  - intel-extension-for-pytorch >=1.8.0
-  - torchvision
-  - torch_ccl
-  - lpot >=1.5.1
-  - distributed
-  - libthrift=0.14.*
-  - thrift-cpp=0.14.*
-  - openjdk >=8.0.302
