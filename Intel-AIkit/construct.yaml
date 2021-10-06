@@ -54,3 +54,4 @@ specs:
   - libthrift=0.14.*
   - thrift-cpp=0.14.*
   - openjdk >=8.0.302
+  - intel-aikit
