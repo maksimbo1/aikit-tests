@@ -1,0 +1,22 @@
+name: create_installer
+on: workflow_dispatch
+jobs:
+  make_artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Install constructor
+        run: $CONDA/bin/conda install constructor
+      - name: Make installer
+        run: $CONDA/bin/constructor Intel-AIkit/        
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Intel-AIkit-2021.4.1-Linux-x86_64
+          path: /home/runner/work/aikit-tests/aikit-tests/Intel-AIkit-2021.4.1-Linux-x86_64.sh
