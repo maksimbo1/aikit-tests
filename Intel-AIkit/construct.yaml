@@ -3,7 +3,7 @@ version: 2021.4.1
 channels:
   - intel
   - defaults
-
+license_file: intel-developer-tools-eula-10-05-20.txt
 specs:
   - python=3.7
   - pyeditline
