@@ -11,9 +11,11 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.7
-      - name: install constructor and make installer
-        run: $CONDA/bin/conda install constructor && $CONDA/bin/constructor Intel-AIkit/
-      - name: upload artifact
+      - name: Install constructor
+        run: $CONDA/bin/conda install constructor
+      - name: Make installer
+        run: $CONDA/bin/constructor Intel-AIkit/        
+      - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: Intel-AIkit-2021.4.1-Linux-x86_64
