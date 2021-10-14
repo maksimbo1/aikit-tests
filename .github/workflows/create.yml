@@ -2,7 +2,7 @@ name: create_installer
 on: workflow_dispatch
 jobs:
   make_artifact:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
         with:
