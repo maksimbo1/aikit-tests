@@ -14,9 +14,9 @@ jobs:
       - name: Activate conda
         run: source /gh-runner/miniconda3/bin/activate
       - name: Install constructor
-        run: $CONDA/bin/conda install constructor
+        run: /gh-runner/miniconda3/bin/conda install constructor
       - name: Make installer
-        run: $CONDA/bin/constructor Intel-AIkit/        
+        run: /gh-runner/miniconda3/bin/constructor Intel-AIkit/        
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
